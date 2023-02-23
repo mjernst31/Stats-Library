@@ -1,26 +1,35 @@
-//@author - Matthew Ernst
-//@version  1.0
-
 import java.util.*;
 
-public class Stats
-{
-    public static double round(double roundThis)
-    {
+/**
+ * @author mjern
+ * @version 1.1
+ */
+public class Stats {
+    /**
+     * Rounds a double to 2 decimal places
+     * @param roundThis the number that will be rounded
+     * @return returns the rounded number
+     */
+    public static double round(double roundThis) {
         /*
         I needed to round decimals for the sake of visuals, and since it was a common dependency for all of my methods,
         I made it into a method that is easy to use and wont complicate the math heavy code further.
         */
         return (double)Math.round(roundThis * 100) / 100;
     }
-    public static double average(ArrayList<Double> collection)
-    {
+
+    /**
+     * Takes the average
+     * @param collection the array that will be looked at when finding the average
+     * @return returns the average of collection
+     */
+    public static double average(ArrayList<Double> collection) {
         double total = 0;
         int index;
 
         if(collection.size() > 1)
         {
-            for (index = 0; index <collection.size(); index++)
+            for (index = 0; index < collection.size(); index++)
                 total = total + collection.get(index);
 
 
@@ -31,20 +40,28 @@ public class Stats
         System.out.println("Array had no data set, returning 0, please try again.");
         return 0;
     }
-    public static double median(ArrayList<Double> collection)
-    {
-        //Sorts the array so that we can return the actual median.
+
+    /**
+     * Gets the median of a sent array
+     * @param collection array that is looked at to find the median
+     * @return the median as a double
+     */
+    public static double median(ArrayList<Double> collection) {
         Collections.sort(collection);
 
-        //means that the array has a length that is an odd number, meaning it is possible to find the median (if collections size is 0, this will not equal 1.
         if(collection.size() % 2 == 1)
             return round((collection.get(collection.size() / 2)));
 
         System.out.println("Median can not be found... either the array is even elements long, or 0 elements long. Returning 0.");
         return 0;
     }
-    public static double standardDev(ArrayList<Double> collection)
-    {
+
+    /**
+     * Calculates the standard deviation of a sent arrayList
+     * @param collection the arrayList that is being looked at to find the standard deviation
+     * @return the standard deviation in double form
+     */
+    public static double standardDev(ArrayList<Double> collection) {
         double averageCalc, returnSTD = 0;// (/❛o❛\)
         int index;
 
