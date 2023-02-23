@@ -11,10 +11,6 @@ public class Stats {
      * @return returns the rounded number
      */
     public static double round(double roundThis) {
-        /*
-        I needed to round decimals for the sake of visuals, and since it was a common dependency for all of my methods,
-        I made it into a method that is easy to use and wont complicate the math heavy code further.
-        */
         return (double)Math.round(roundThis * 100) / 100;
     }
 
